@@ -41,11 +41,11 @@ void			other_key(struct termios *term, t_lst **lst, t_pos *pos, char *buffer)
 	(void)lst;
 	(void)pos;
 	(void)term;
-	//printf("buffer[0] = %d, buffer[1] = %d, buffer[3] = %d\n", buffer[0], buffer[1], buffer[2]);
+	printf("buffer[0] = %d, buffer[1] = %d, buffer[3] = %d\n", buffer[0], buffer[1], buffer[2]);
 	if (buffer[0] == 32)
 		space_key(*lst, pos);
-	if (buffer[0] == 126 || buffer[0] == 127)
-	{
+	else if (buffer[0] == 126 || buffer[0] == 127)
 		del_func(lst, pos);
-	}
+	else if (buffer[0] == 10)
+		valide_choice(lst, pos);
 }

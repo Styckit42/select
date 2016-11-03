@@ -32,7 +32,7 @@ int			main(int argc, char **argv)
 		lst = argv_to_lst(argv, argc, &pos);
 		init_termios(&term);
 		start_work(&term, &lst, &pos);
-		restore_param();
+		restore_param(term);
 	}
 	return (0);
 }
