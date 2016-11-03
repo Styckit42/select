@@ -34,11 +34,14 @@ void		valide_choice(t_lst **lst, t_pos *pos)
 			ft_putchar(' ');
 			cpt--;
 		}
+<<<<<<< HEAD
 		else if (tmp->select == 1 && cpt == 1)
 		{
 			ft_putstr(tmp->name);
 			ft_putchar('\n');
 		}
+=======
+>>>>>>> b1bc1cd85910b6a624aa0313fe0360edecb4709e
 		tmp = tmp->next;
 	}
 	if (tmp->select == 1 && cpt == 1)
