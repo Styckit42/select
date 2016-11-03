@@ -15,16 +15,6 @@
 static void	arrow_down(struct termios *term, t_lst *lst, t_pos *pos)
 {
 	(void)term;
-	// t_lst	*tmp;
-
-	// tmp = lst;
-	// while(tmp->current != 1)
-	// 	tmp = tmp->next;
-	// if (tmp->current == 1)
-	// {
-	// 	tmp->current = 0;
-	// 	tmp->next->current = 1;
-	// }
 	lst = pos->target;
 	while(lst->current != 1)
 		 lst = lst->next;
@@ -40,7 +30,6 @@ static void	arrow_down(struct termios *term, t_lst *lst, t_pos *pos)
 static void	arrow_up(struct termios *term, t_lst *lst, t_pos *pos)
 {
 	(void)term;
-	//printf("%s\n", )
 	lst = pos->target;
 	while(lst->current != 1)
 		 lst = lst->next;
@@ -61,8 +50,4 @@ void		arrow_key(struct termios *term, t_lst *lst, t_pos *pos, char *buffer)
 		arrow_up(term, lst, pos);
 	else if (buffer[2] == 'B')
 		arrow_down(term, lst, pos);
-	/*else if (buffer[2] == 'C')
-		printf("it's right !\n");
-	else if (buffer[2] == 'D')
-		printf("it's left !\n");*/
 }

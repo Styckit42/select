@@ -33,8 +33,6 @@ static void	delete_first_item(t_lst **lst, t_pos *pos, t_lst *del)
 
 	old_lst = *lst;
 	pos->target = (*lst)->next;
-	//tmp = del->next;
-	
 	(*lst)->next->prev = (*lst)->prev;
 	(*lst)->prev->next = (*lst)->next;
 	(*lst) = (*lst)->next;

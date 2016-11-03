@@ -23,11 +23,6 @@
 # include <sys/ioctl.h>
 # include "../libft/libft.h"
 
-# define UP "27[A"
-# define DOWN 1346525979
-# define RIGHT 1346591515
-# define LEFT 1346657051
-
 typedef struct		s_lst
 {
 	char			*name;
@@ -39,6 +34,8 @@ typedef struct		s_lst
 
 typedef struct		s_pos
 {
+	unsigned int 	nbr_elem;
+	unsigned int 	lenest;
 	short int		nbr_l;
 	short int		nbr_c;
 	struct	s_lst	*target;
@@ -54,9 +51,10 @@ int					ft_puts(int c);
 int					init_termios(struct termios *term);
 void				other_key(struct termios *term, t_lst **lst, t_pos *pos, char *buffer);
 void				print_list(t_lst *lst, t_pos *pos);
-void				restore_param();
+int					restore_param();
 t_pos				*recup_size_window(t_pos *pos);
 void				start_work(struct termios *term, t_lst **lst, t_pos *pos);
+void				valide_choice(t_lst **lst, t_pos *pos);
 
 
 #endif

@@ -12,7 +12,15 @@
 
 #include "ft_select.h"
 
-void	restore_param()
+int		restore_param()
 {
-	tputs(tgetstr("ve", NULL), 1, ft_puts);
+	struct termios term;
+ 
+	if (tcgetattr(0, &term) == -1)
+   		return (-1);
+	term.c_lflag = (ICANON | ECHO);
+	if (tcsetattr(0, 0, &term) == -1)
+   		return (-1);
+   	else
+   		return (0);
 }
