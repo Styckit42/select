@@ -24,7 +24,6 @@ static void	arrow_down(struct termios *term, t_lst *lst, t_pos *pos)
 	tputs(tgetstr("cl", NULL), 1, ft_puts);
 	print_list(lst, pos);
 	tputs(tgoto(tgetstr("cm", NULL), 0, 0), 1, ft_puts);
-	//tputs(tgetstr("do", NULL), 1, ft_puts);
 }
 
 static void	arrow_up(struct termios *term, t_lst *lst, t_pos *pos)

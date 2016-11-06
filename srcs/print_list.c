@@ -43,16 +43,14 @@ void		print_list(t_lst *lst, t_pos *pos)
 	printf("biggest = %d\n", pos->lenest);
 }
 
-// void	print_resize(t_lst *lst, t_pos *pos)
-// {
-
-// }
-
-// void	print_list2(t_lst *lst, t_pos *pos)
-// {
-//  	recup_size_window(pos);
-//  	if (pos->nbr_elem <= pos->nbr_l)
-//  		print_list(lst, pos);
-//  	else
-//  		print_resize(lst, pos)
-// }
+void	print_list2(t_lst *lst, t_pos *pos)
+{
+ 	recup_size_window(pos);
+ 	if ((pos->nbr_elem <= (size_t)pos->nbr_l) && (pos->lenest <= (size_t)pos->nbr_c))
+ 		print_list(lst, pos);
+ 	else
+ 	{
+ 		printf("need resize\n");
+ 		print_resize(lst, pos);
+ 	}
+}

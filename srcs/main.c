@@ -16,6 +16,7 @@ static void	new_lst(t_pos *pos)
 {
 	pos->target = NULL;
 	pos->len = 0;
+	pos->lenest = 0;
 }
 
 
@@ -35,21 +36,21 @@ static void	len_lst(t_lst *lst, t_pos *pos)
 	pos->nbr_elem = cpt;
 }
 
-static	void	len_biggest(t_lst *lst, t_pos *pos)
-{
-	t_lst	*tmp;
+// static	void	len_biggest(t_lst *lst, t_pos *pos)
+// {
+// 	t_lst	*tmp;
 
-	tmp = lst;
-	pos->lenest = ft_strlen(tmp->name);
-	while (tmp->next != pos->target)
-	{
-		if (ft_strlen(tmp->name) > pos->lenest)
-			pos->lenest = ft_strlen(tmp->name);
-		tmp = tmp->next;
-	}
-	if (ft_strlen(tmp->name) > pos->lenest)
-		pos->lenest = ft_strlen(tmp->name);
-}
+// 	tmp = lst;
+// 	pos->lenest = ft_strlen(tmp->name);
+// 	while (tmp->next != pos->target)
+// 	{
+// 		if (ft_strlen(tmp->name) > pos->lenest)
+// 			pos->lenest = ft_strlen(tmp->name);
+// 		tmp = tmp->next;
+// 	}
+// 	if (ft_strlen(tmp->name) > pos->lenest)
+// 		pos->lenest = ft_strlen(tmp->name);
+// }
 
 int			main(int argc, char **argv)
 {
@@ -63,7 +64,7 @@ int			main(int argc, char **argv)
 	{
 		lst = argv_to_lst(argv, argc, &pos);
 		len_lst(lst, &pos);
-		len_biggest(lst, &pos);
+		//len_biggest(lst, &pos);
 		init_termios(&term);
 		start_work(&term, &lst, &pos);
 		restore_param(term);
